@@ -1,0 +1,49 @@
+body{
+    background-color:peachpuff;
+    padding:0;
+    margin:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body,input,button{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:18pt;
+    color:palevioletred;
+}
+
+input[type=text]{
+    border-radius:25px;
+    border:4px solid darkblue;
+    margin:3px 0;
+    color:black;
+    width: 256px;
+    padding:10px 10px;
+}
+
+button{
+    background-color: darkred;
+    color:#ffffff;
+    border:0;
+    border-radius: 10px;
+    padding:1em 2em;
+    cursor:pointer;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.welcome h1, .welcome h2{
+    text-align: center;
+}
+.welcome .players{
+    margin: 50px 0;
+}
+
