@@ -149,4 +149,13 @@
         return $win;
     }
 
+    function playerName($player='x') {
+        return $_SESSION['PLAYER_' . strtoupper($player) . '_NAME'];
+    
+    }
+
+    function currentPlayer() {
+        return playerName(getTurn());
+    }
+
 
