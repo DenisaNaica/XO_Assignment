@@ -3,6 +3,14 @@
     if(!getPlayersRegistred()){
         header("location: index.php");
     }
+
+    if($_POST['cell']){
+        $win=play($_POST['cell']);
+
+        if($win){
+            header("location: result.php?player=" . getTurn());
+        }
+    }
     ?>
 <html>
 <head>
@@ -39,15 +47,21 @@
                     }
 
                     ?>
-
                     <td class="cell-<?= $i ?> <?=$addClass ?>">
+                    <?php if(getCell($i)==='x'): ?>
+                            X
+                        <?php elseif (getCell($i)==='o'):?>
+                            0
+                        <?php else:?>
+                             <input type="checkbox" name="cell" value="<?= $i?>" onclick="enbableButton()"/>
+                        <?php endif;?>
                     </td>
             <?php } ?>
             </tr>
             </tbody>
         </table>
 
-        <button id=play" type="submit" disabled>Play</button>
+        <button id="play" type="submit" disabled>Play</button>
     </form>
     <script type="text/javascript">
         function enbableButton(){
