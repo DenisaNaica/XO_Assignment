@@ -27,6 +27,9 @@
                             }
                         ?>
                     </h1>
+                    <h2>
+                        <a href="index.php">Exit</a>
+                    </h2>
                 </div>
             </td>
         </tr>
