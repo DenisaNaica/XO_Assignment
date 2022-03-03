@@ -1,5 +1,7 @@
 body{
-    background-color:peachpuff;
+    background: url("istockphoto-1061490690-612x612.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     padding:0;
     margin:0;
     width:100%;
