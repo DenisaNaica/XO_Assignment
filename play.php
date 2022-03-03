@@ -21,6 +21,11 @@
 </head>
 <body>
     <h2> Welcome to the Game</h2>
+    <h2>
+        <?php
+            echo '<br><br><br>'.currentPlayer()
+        ?> 's turn
+    </h2>
     <form method="post" action="play.php">
         <table class="xo-game" cellpadding="0" cellspacing="0">
             <tbody>
