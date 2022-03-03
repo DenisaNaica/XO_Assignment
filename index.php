@@ -24,6 +24,7 @@
 
             </div>
             <button type="submit">Click to Start the game</button>
+            <a href="allGames.php">All games</a>
         </div>
     </form>
 </body>
