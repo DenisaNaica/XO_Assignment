@@ -1,5 +1,17 @@
 <?php
     require_once("template/header.php");
+    include("connectionDB.php");
+    //aici se va stoca structura jocului sub forma de array
+    $table_game=['-','-','-','-','-','-','-','-','-'];
+
+    //pt a putea face insert in baza de date trebuie sa convertim arrayul de mai sus in string
+    $string_game="";
+
+    $status_game=0;//1 cand avem castig
+
+    $player1 = playerName('x');
+    $player2 = playerName('o');
+
     if(!getPlayersRegistred()){
         header("location: index.php");
     }
@@ -8,6 +20,7 @@
         $win=play($_POST['cell']);
 
         if($win){
+            $status_game=1;
             header("location: result.php?player=" . getTurn());
         }
     }
@@ -63,11 +76,32 @@
                         <?php else:?>
                              <input type="checkbox" name="cell" value="<?= $i?>" onclick="enbableButton()"/>
                         <?php endif;?>
+
+
+                        <?php
+                            if(getCell($i)==='x'){
+                                $table_game[$i-1]='X';
+                            }else if(getCell($i)==='o'){
+                                $table_game[$i-1]='0';
+                            }
+
+                            $string_game=implode(",",$table_game);
+                        ?>
                     </td>
             <?php } ?>
             </tr>
             </tbody>
         </table>
+
+        <?php
+            if($status_game==1) {
+                //cazul in care avem castig
+                $winner = currentPlayer();
+                $sql = "insert game(player1,player2,structure_game,status,winner) values('$player1', '$player2', '$string_game', 'finished','$winner');";
+                $result = $conn->query($sql);
+                $conn->close();
+            }
+        ?>
 
         <button id="play" type="submit" disabled>Play</button>
         <a href="saveDb.php">Leave and Save game</a>
