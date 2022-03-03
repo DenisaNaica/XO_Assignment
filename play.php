@@ -70,6 +70,7 @@
         </table>
 
         <button id="play" type="submit" disabled>Play</button>
+        <a href="saveDb.php">Leave and Save game</a>
     </form>
     <script type="text/javascript">
         function enbableButton(){
