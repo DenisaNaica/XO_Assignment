@@ -100,6 +100,11 @@
                 $sql = "insert game(player1,player2,structure_game,status,winner) values('$player1', '$player2', '$string_game', 'finished','$winner');";
                 $result = $conn->query($sql);
                 $conn->close();
+            }else if($status_game==0 && playsCount()>=9){
+                //cazul in care avem remiza
+                $sql = "insert game(player1,player2,structure_game,status,winner) values('$player1', '$player2', '$string_game', 'tie','no-winner');";
+                $result = $conn->query($sql);
+                $conn->close();
             }
         ?>
 
